@@ -47,14 +47,14 @@ describe('Testando propriedades', () => {
         expect(bilhete.getPreco()).toBe(2); 
     });
 
-    test('preco < 0', () => {
+    test('set preco < 0', () => {
         bilhete = new Bilhete(1, 6, 4.50); // ID/ numero/ preço
         expect(() => {
             bilhete.setPreco(-1)
         }).toThrow('preco invalido');
     });
     
-    test('preco < 0', () => {
+    test('get preco < 0', () => {
         bilhete = new Bilhete(1, 6, -1); // ID/ numero/ preço
         expect(() => {
             bilhete.getPreco()
@@ -63,25 +63,24 @@ describe('Testando propriedades', () => {
 
     test('get numeros Apostados', () => {
         bilhete = new Bilhete(1, 6, 4.50); // ID/ numero/ preço
-        bilhete.setPreco(2)
         expect(bilhete.getQuantidadeNumerosApostados()).toBe(6); 
     });
 
-    test('set numeros Apostados invalido', () => {
+    test('set numeros apostados invalido (< 6)', () => {
         bilhete = new Bilhete(1, 6, 4.50); // ID/ numero/ preço
         expect(() => {
             bilhete.setQuantidadeNumerosApostados(5)
         }).toThrow('jogo invalido');
     });
 
-    test('set numeros Apostados invalido', () => {
+    test('set numeros apostados invalido (> 15)', () => {
         bilhete = new Bilhete(1, 6, 4.50); // ID/ numero/ preço
         expect(() => {
             bilhete.setQuantidadeNumerosApostados(16)
         }).toThrow('jogo invalido');
     });
 
-    test('set numeros Apostados valido', () => {
+    test('set numeros apostados valido', () => {
         bilhete = new Bilhete(1, 6, 4.50); // ID/ numero/ preço
         bilhete.setQuantidadeNumerosApostados(7)
         expect(bilhete.getQuantidadeNumerosApostados()).toBe(7); 
