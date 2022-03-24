@@ -1,9 +1,10 @@
 module.exports = class Bilhete{
 
-    constructor(id, quantidadeNumerosApostados, preco){
+    constructor(id, quantidadeNumerosApostados, preco, dezenas){
         this.id = id;
         this.quantidadeNumerosApostados = quantidadeNumerosApostados;
         this.preco = preco
+        this.dezenas = dezenas
     }
 
     getId(){
@@ -40,6 +41,14 @@ module.exports = class Bilhete{
             throw new Error('preco invalido')
         } 
         this.preco = preco;
+    }
+
+    getDezenas(){
+        return this.dezenas;
+    }
+
+    setDezenas(dezenas){
+        this.dezenas = dezenas;
     }
 
 }

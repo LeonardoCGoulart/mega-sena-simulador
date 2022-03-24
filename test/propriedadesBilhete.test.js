@@ -86,4 +86,15 @@ describe('Testando propriedades', () => {
         expect(bilhete.getQuantidadeNumerosApostados()).toBe(7); 
     });
 
+    test('set dezenas', () => {
+        bilhete = new Bilhete(1, 6, 4.50); // ID/ numero/ preço
+        bilhete.setDezenas([1,2,3,4,5,6])
+        expect(bilhete.getDezenas()).toStrictEqual([1,2,3,4,5,6]);
+    });
+
+    test('get dezenas', () => {
+        bilhete = new Bilhete(1, 6, 4.50, [1,2,3,4,5,6]); // ID/ numero/ preço
+        expect(bilhete.getDezenas()).toStrictEqual([1,2,3,4,5,6]); 
+    });
+
 });
