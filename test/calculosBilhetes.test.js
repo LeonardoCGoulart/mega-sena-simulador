@@ -10,7 +10,7 @@ describe('Verificação dos resultados', () => {
     });
 
     test('acertou a quina!', () => {
-        bilhete = new Bilhete(1, 6, 4.50, [1,2,3,4,5,6]); // ID/ numero/ preço / dezenas
+        bilhete = new Bilhete(1, 6, 4.50, [1,3,2,4,5,6]); // ID/ numero/ preço / dezenas
         resultadoMegaSena = [1,2,3,4,5,7]
         expect(conferirMegaSena(bilhete, resultadoMegaSena)).toBe("acertou a quina na mega sena"); 
     });

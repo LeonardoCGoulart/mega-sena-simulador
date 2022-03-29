@@ -1,7 +1,7 @@
 function getQuantidadeAcertos(bilhete, resultado){
     let acertos = 0
     for(let i = 0; i < bilhete.getQuantidadeNumerosApostados(); i++){
-        if(bilhete.getDezenas()[i] == resultado[i]){
+        if(bilhete.getDezenas().includes(resultado[i])){
             acertos = acertos + 1
         }
     }
