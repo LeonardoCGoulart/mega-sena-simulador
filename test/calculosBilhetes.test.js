@@ -28,3 +28,33 @@ describe('Verificação dos resultados', () => {
     });
     
 });
+
+describe('Gerar sorteio do resultado da mega sena', () => {
+
+    test('quantidade de dezenas', () => {
+        const resultado = sortearResultadoMegaSena()
+        expect(resultado.length).toBe(6); 
+    });
+
+    test('numeros repetidos', () => {
+        const resultado = sortearResultadoMegaSena()
+        const resultado2 = resultado
+        let repetido = false
+        let quantidadeEncontrado = 0
+
+        for(let i = 0; i < resultado.length; i++){
+            for(let j = 0; j < resultado.length; j++){
+                if(resultado[i] == resultado2[j]){
+                    quantidadeEncontrado = quantidadeEncontrado + 1
+                }
+            }
+            if(quantidadeEncontrado >= 2){
+                repetido = true
+                break
+            }
+            quantidadeEncontrado = 0
+        }
+
+    });
+    
+});
