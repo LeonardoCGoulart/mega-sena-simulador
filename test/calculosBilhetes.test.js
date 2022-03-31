@@ -1,5 +1,5 @@
 const Bilhete = require('../src/model/Bilhete')
-const {conferirMegaSena} = require ('../src/controller/calculoBilhete')
+const {conferirMegaSena, sortearResultadoMegaSena} = require ('../src/controller/calculoBilhete')
 
 describe('Verificação dos resultados', () => {
 
@@ -36,7 +36,7 @@ describe('Gerar sorteio do resultado da mega sena', () => {
         expect(resultado.length).toBe(6); 
     });
 
-    test('numeros repetidos', () => {
+    test('numeros repetidos com resultado dinamico', () => {
         const resultado = sortearResultadoMegaSena()
         const resultado2 = resultado
         let repetido = false
@@ -54,6 +54,8 @@ describe('Gerar sorteio do resultado da mega sena', () => {
             }
             quantidadeEncontrado = 0
         }
+
+        expect(repetido).toBe(false); 
 
     });
     
