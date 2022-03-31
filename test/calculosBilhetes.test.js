@@ -88,3 +88,36 @@ describe('Gerar sorteio do resultado da mega sena', () => {
     });
     
 });
+
+
+describe('Adicionar dezenas no seu bilhete', () => {
+
+    test('adicionando dezenas - correto', () => {
+        const dezenas = adicionarDezenasAoBilhete([1, 2, 3, 4, 5, 6])
+
+        bilhete = new Bilhete();
+        bilhete.setId(1)
+        bilhete.setQuantidadeNumerosApostados(6)
+        bilhete.setPreco(4.50)
+        bilhete.setDezenas()
+
+        expect(bilhete.getDezenas()).toStrictEqual([1,2,3,4,5,6]); 
+    });
+
+    test('adicionando dezenas - invalido (numero maior que 60)', () => {
+        const dezenas = adicionarDezenasAoBilhete([1, 2, 3, 4, 5, 80])
+
+        expect(() => {
+            dezenas
+        }).toThrow('dezena invalida');
+    });
+
+    test('adicionando dezenas - invalido (numero menor igual a 0)', () => {
+        const dezenas = adicionarDezenasAoBilhete([1, 2, 3, 4, -1, 0])
+
+        expect(() => {
+            dezenas
+        }).toThrow('dezena invalida');
+    });
+    
+});
