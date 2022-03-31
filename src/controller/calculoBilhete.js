@@ -22,12 +22,15 @@ function conferirMegaSena(bilhete, resultado){
     }
 }
 
-function gerarNumeroAleatorio(inicio, fim) {
+function gerarNumeroAleatorio(min, max) { // retorna um numero aleatório dentre os intervalos inicio e fim 
 
-    resultado =  Math.floor(Math.random() * fim + 0.5); // + 0.5 para retornar o zero caso [0,x]
+    if(min > max) // proteção anti loop
+        return min 
 
-     while(resultado < inicio){ // não pode ser menor que o inicio
-         resultado = Math.floor(Math.random() * fim + 0.5);
+    resultado =  Math.floor(Math.random() * max + 0.5); // + 0.5 para retornar o zero caso [0,x]
+
+     while(resultado < min){ // não pode ser menor que o inicio
+         resultado = Math.floor(Math.random() * max + 0.5);
      }
 
      return resultado;
@@ -51,4 +54,5 @@ function sortearResultadoMegaSena(){
 module.exports = {
     conferirMegaSena,
     sortearResultadoMegaSena,
+    gerarNumeroAleatorio,
 }
