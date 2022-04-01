@@ -51,8 +51,23 @@ function sortearResultadoMegaSena(){
     return resultado
 }
 
+function adicionarDezenasAoBilhete(bilhete, dezenas){
+
+    if(bilhete.getQuantidadeNumerosApostados() !== dezenas.length)
+        throw new Error('quantidade de dezenas invalida')
+
+    for(let i = 0; i < dezenas.length; i++){
+        if(dezenas[i] > 60 || dezenas[i] < 1){
+            throw new Error('dezena invalida')
+        }
+    }
+
+    bilhete.setDezenas(dezenas)
+}
+
 module.exports = {
     conferirMegaSena,
     sortearResultadoMegaSena,
     gerarNumeroAleatorio,
+    adicionarDezenasAoBilhete,
 }
