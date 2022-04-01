@@ -125,5 +125,17 @@ describe('Adicionar dezenas no seu bilhete', () => {
             adicionarDezenasAoBilhete(bilhete, [1, 2, 3, 4, 5, 0])
         }).toThrow('dezena invalida');
     });
+
+    test('adicionando dezenas - quantidade de dezenas invalida', () => {
+        bilhete = new Bilhete();
+        bilhete.setId(1)
+        bilhete.setQuantidadeNumerosApostados(7) // apostou com 7 numeros
+        bilhete.setPreco(4.50)
+        
+
+        expect(() => {
+            adicionarDezenasAoBilhete(bilhete, [1, 2, 3, 4, 5, 6]) // jogou apenas 6 numeros
+        }).toThrow('quantidade de dezenas invalida');
+    });
     
 });
